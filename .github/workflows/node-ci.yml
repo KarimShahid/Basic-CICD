@@ -1,10 +1,8 @@
-name: Node.js CI
+name: Node.js CI/CD
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -17,7 +15,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 24
+        node-version: 18
 
     - name: Install dependencies
       run: npm install
@@ -25,12 +23,9 @@ jobs:
     - name: Run tests
       run: npm test
 
-    - name: Trigger Render Deployment
-      if: success() # only deploy if tests pass
-      env:
-          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-      run: |
-          curl -X POST "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
-               -H "Accept: application/json" \
-               -H "Authorization: Bearer $RENDER_API_KEY"
+    - name: Deploy to Render
+      if: success()  # only deploy if tests pass
+      uses: render-examples/deploy-nodejs@v1
+      with:
+        apiKey: ${{ secrets.RENDER_API_KEY }}
+        serviceId: ${{ secrets.RENDER_SERVICE_ID }}
