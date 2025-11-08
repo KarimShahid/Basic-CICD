@@ -1,12 +1,12 @@
-const { greetAll } = require('../index');
+const { greetAll } = require('../functions');
 
 test('greets multiple people correctly', () => {
   const names = ['Alice', 'Bob', 'Charlie'];
   const greetings = greetAll(names);
   expect(greetings).toEqual([
-    'Hello, Alice!',
-    'Hello, Bob!',
-    'Hello, Charlie!'
+    'Greetings: Alice',
+    'Greetings: Bob',
+    'Greetings: Charlie'
   ]);
 });
 

@@ -1,5 +1,4 @@
-const { greet } = require('../index');
-const { add } = require('../index');
+const { greet } = require('../functions');
 
 test('greets a person correctly', () => {
   expect(greet('Karim')).toBe('Hello, Karim!');
