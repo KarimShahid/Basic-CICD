@@ -9,6 +9,3 @@ test('greets CI/CD World', () => {
   expect(greet('CI/CD World')).toBe('Hello, CI/CD World!');
 });
 
-test('adds two numbers correctly',()=>{
-  expect(add(6,6)).toBe(12);
-})

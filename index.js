@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// --- Functions ---
 function greet(name) {
   return `Hello, ${name}!`;
 }
@@ -17,7 +18,7 @@ function greetAll(names) {
   return names.map(name => greet(name));
 }
 
-// API endpoints
+// --- API Endpoints ---
 app.get('/', (req, res) => {
   res.send(greet('CI/CD World'));
 });
@@ -31,8 +32,12 @@ app.get('/greetAll', (req, res) => {
   res.send(greetings.join(', '));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// --- Only start server if run directly ---
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
 
+// Export for testing
 module.exports = { greet, add, greetAll, app };
