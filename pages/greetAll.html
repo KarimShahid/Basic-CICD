@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greet Everyone</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="icon">👋</div>
+        <h1>Greet Everyone</h1>
+        <p class="subtitle">Enter names separated by commas</p>
+        
+        <form action="/greetAll" method="POST">
+            <div class="form-group">
+                <label for="names">Names</label>
+                <textarea 
+                    id="names" 
+                    name="names" 
+                    placeholder="e.g., Alice, Bob, Charlie" 
+                    required
+                ></textarea>
+                <p class="helper-text">💡 Separate multiple names with commas</p>
+            </div>
+
+            <button type="submit">Generate Greetings 🎉</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Numbers Calculator</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🧮</div>
+        <h1>Number Calculator</h1>
+        <p class="subtitle">Add two numbers together</p>
+        
+        <form action="/add" method="POST">
+            <div class="form-group">
+                <label for="num1">First Number</label>
+                <input 
+                    type="number" 
+                    id="num1" 
+                    name="num1" 
+                    placeholder="Enter first number" 
+                    required
+                    step="any"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="num2">Second Number</label>
+                <input 
+                    type="number" 
+                    id="num2" 
+                    name="num2" 
+                    placeholder="Enter second number" 
+                    required
+                    step="any"
+                >
+            </div>
+
+            <button type="submit">Calculate Sum ➕</button>
+        </form>
+    </div>
+</body>
+</html>
