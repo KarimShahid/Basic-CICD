@@ -24,3 +24,10 @@ jobs:
 
     - name: Run tests
       run: npm test
+
+    - name: Deploy to Render
+      if: success()  # only deploy if tests pass
+      uses: render-examples/deploy-nodejs@v1
+      with:
+        apiKey: ${{ secrets.RENDER_API_KEY }}
+        serviceId: ${{ secrets.RENDER_SERVICE_ID }}
